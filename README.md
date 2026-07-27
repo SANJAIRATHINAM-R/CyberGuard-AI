@@ -1,7 +1,442 @@
-echo "# CyberGuard-AI" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/SANJAIRATHINAM-R/CyberGuard-AI.git
-git push -u origin main
+# 🛡️ CyberGuard AI
+
+<div align="center">
+
+![CyberGuard AI](https://img.shields.io/badge/CyberGuard-AI-0A84FF?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask)
+![SQLite](https://img.shields.io/badge/SQLite-Database-blue?style=for-the-badge&logo=sqlite)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript)
+![HTML5](https://img.shields.io/badge/HTML5-Frontend-orange?style=for-the-badge&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-Styling-blue?style=for-the-badge&logo=css3)
+
+### 🚀 One Platform to Detect, Analyze, Explain & Prevent Cyber Threats
+
+*A modern AI-powered cybersecurity toolkit for students, professionals, and security enthusiasts.*
+
+</div>
+
+---
+
+# 📖 Overview
+
+CyberGuard AI is an all-in-one cybersecurity platform designed to help users identify and understand common cyber threats through interactive security tools.
+
+The application combines multiple security scanners with AI-powered explanations inside a modern dashboard. Every module is beginner-friendly while still providing useful information for cybersecurity learners and professionals.
+
+Unlike many security tools, CyberGuard AI can also work **offline**. When the Flask backend is unavailable, the frontend automatically switches to browser-based analysis, allowing demonstrations without server setup.
+
+---
+
+# ✨ Features
+
+## 🔐 Password Security Checker
+
+Analyze password strength using entropy calculations.
+
+### Detects
+
+- Weak passwords
+- Password entropy
+- Estimated crack time
+- Character diversity
+- Security recommendations
+- AI explanation
+
+---
+
+## 🌐 Website Security Scanner
+
+Analyze websites for common security risks.
+
+### Checks
+
+- HTTPS availability
+- WHOIS domain age
+- Redirect chain
+- Suspicious keywords
+- Blacklist patterns
+- URL risk score
+
+---
+
+## 📧 Email Phishing Analyzer
+
+Analyze raw email files for phishing indicators.
+
+### Detects
+
+- Reply-To spoofing
+- From header mismatches
+- Suspicious links
+- URL shorteners
+- Phishing language
+- Dangerous attachments
+
+Supports:
+
+- `.eml` files
+- Raw email source
+
+---
+
+## 📱 QR Code Scanner
+
+Client-side QR decoder powered by **jsQR**.
+
+After decoding, CyberGuard AI automatically:
+
+- Extracts destination URL
+- Performs website risk analysis
+- Detects suspicious domains
+- Identifies phishing links
+
+---
+
+## 📂 File Scanner
+
+Perform static file inspection without uploading files to external services.
+
+### Features
+
+- SHA-256 hashing
+- Magic-byte detection
+- Double extension detection
+- Macro-enabled Office document detection
+- Executables inside archives
+- File risk analysis
+
+---
+
+## 📜 Log Analyzer
+
+Analyze Apache, Nginx, or system logs.
+
+### Detects
+
+- SQL Injection
+- Cross-Site Scripting (XSS)
+- Directory Traversal
+- Command Injection
+- Brute-force login attempts
+- Per-line attack explanations
+
+---
+
+## 🤖 AI Cybersecurity Chatbot
+
+Built-in cybersecurity assistant capable of answering questions about:
+
+- Phishing
+- Malware
+- Ransomware
+- SQL Injection
+- XSS
+- Brute Force
+- Firewalls
+- VPN
+- MFA
+- DDoS
+- Social Engineering
+- Password Security
+- Safe Browsing
+- General Cybersecurity Concepts
+
+---
+
+## 📊 Dashboard
+
+Modern cybersecurity dashboard including:
+
+- Security Score Ring
+- Threat Statistics
+- Live Alerts
+- Interactive Charts
+- Recent Activity
+- Security KPIs
+
+---
+
+# 🎯 Highlights
+
+✅ No Login Required
+
+✅ Open Access
+
+✅ Offline Mode Support
+
+✅ Responsive UI
+
+✅ AI-Powered Explanations
+
+✅ SQLite Logging
+
+✅ Beginner Friendly
+
+✅ Dark Cybersecurity Theme
+
+---
+
+# 🖥️ Screens
+
+- Landing Page
+- Dashboard
+- Password Checker
+- Website Scanner
+- Email Analyzer
+- QR Scanner
+- File Scanner
+- Log Analyzer
+- AI Chatbot
+
+---
+
+# ⚙️ Tech Stack
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Chart.js
+- jsQR
+- Font Awesome
+- Google Fonts
+
+---
+
+## Backend
+
+- Python
+- Flask
+- SQLite
+
+---
+
+## Design
+
+- Glassmorphism UI
+- Neon Blue Theme
+- Animated Radar Effects
+- Responsive Layout
+
+---
+
+# 📁 Project Structure
+
+```
+CyberGuard-AI/
+│
+├── index.html
+├── dashboard.html
+├── password_checker.html
+├── website_scanner.html
+├── chatbot.html
+├── email_analyzer.html
+├── qr_scanner.html
+├── file_scanner.html
+├── log_analyzer.html
+│
+├── css/
+│   ├── style.css
+│   ├── dashboard.css
+│   └── scanner.css
+│
+├── js/
+│   ├── main.js
+│   ├── dashboard.js
+│   ├── scanner.js
+│   ├── chatbot.js
+│   ├── email.js
+│   ├── qr.js
+│   ├── filescan.js
+│   └── logscan.js
+│
+└── backend/
+    ├── app.py
+    ├── database.py
+    ├── password.py
+    ├── scanner.py
+    ├── emailscan.py
+    ├── filescan.py
+    ├── logscan.py
+    ├── ai.py
+    ├── cyberguard.db
+    └── requirements.txt
+```
+
+---
+
+# 🚀 Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/USERNAME/CyberGuard-AI.git
+```
+
+```bash
+cd CyberGuard-AI
+```
+
+---
+
+## Install Dependencies
+
+```bash
+cd backend
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Run Application
+
+```bash
+python app.py
+```
+
+---
+
+Open your browser:
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+# 💻 Offline Mode
+
+CyberGuard AI continues to function even without the Flask backend.
+
+When backend APIs are unavailable:
+
+- Password analysis runs locally
+- Website scanner performs browser-based checks
+- QR scanner remains fully client-side
+- Dashboard remains interactive
+- UI is fully demoable
+
+---
+
+# 📦 Optional Packages
+
+Install for enhanced functionality:
+
+```bash
+pip install python-whois requests
+```
+
+These enable:
+
+- WHOIS lookups
+- Domain age detection
+- Redirect inspection
+
+If unavailable, CyberGuard AI automatically skips those checks.
+
+---
+
+# 📊 Database
+
+SQLite database is automatically created on first launch.
+
+```
+backend/cyberguard.db
+```
+
+Stores:
+
+- Scan history
+- Security logs
+- Dashboard statistics
+
+---
+
+# 🔮 Planned Features
+
+The following features are planned for future releases:
+
+- ⚙️ Settings Page
+- 👨‍💼 Admin Panel
+- 🔑 User Authentication
+- 📈 Threat Intelligence API
+- 🌍 VirusTotal Integration
+- 🛡️ Real-time Monitoring
+- 📄 PDF Report Export
+- 📧 Email Alerts
+- 🔔 Push Notifications
+- 🌐 Multi-language Support
+
+---
+
+# 🎓 Who Can Use This?
+
+- Cybersecurity Students
+- Ethical Hackers
+- Security Researchers
+- Developers
+- IT Professionals
+- College Projects
+- Cybersecurity Workshops
+- CTF Beginners
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+
+2. Create a feature branch
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+It helps others discover the project and supports future development.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify, and distribute it in accordance with the license.
+
+---
+
+<div align="center">
+
+## 🛡️ CyberGuard AI
+
+### Detect • Analyze • Explain • Prevent
+
+Built with ❤️ using Python, Flask, JavaScript, and AI.
+
+</div>
