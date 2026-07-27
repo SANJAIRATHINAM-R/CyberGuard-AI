@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — CyberGuard AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dash-body">
+
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i> CyberGuard AI</a>
+  <nav class="side-nav">
+    <a href="dashboard.html" class="active"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    <a href="website_scanner.html"><i class="fa-solid fa-globe"></i> Website Scanner</a>
+    <a href="email_analyzer.html"><i class="fa-solid fa-envelope-open-text"></i> Email Analyzer</a>
+    <a href="qr_scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
+    <a href="password_checker.html"><i class="fa-solid fa-key"></i> Password Checker</a>
+    <a href="file_scanner.html"><i class="fa-solid fa-file-shield"></i> File Scanner</a>
+    <a href="log_analyzer.html"><i class="fa-solid fa-server"></i> Log Analyzer</a>
+    <a href="chatbot.html"><i class="fa-solid fa-robot"></i> AI Chatbot</a>
+    <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+  </nav>
+  <a href="index.html" class="side-logout"><i class="fa-solid fa-house"></i> Back to Home</a>
+</aside>
+
+<!-- MAIN -->
+<div class="dash-main">
+  <header class="topbar">
+    <button class="side-toggle" id="sideToggle"><i class="fa-solid fa-bars"></i></button>
+    <div class="topbar-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="globalSearch" placeholder="Search scans, alerts, modules...">
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="darkToggle" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon-btn" title="Notifications"><i class="fa-solid fa-bell"></i><span class="dot"></span></button>
+      <div class="user-chip"><div class="avatar"><i class="fa-solid fa-user"></i></div><span>Guest</span></div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <div class="dash-heading">
+      <div>
+        <h1>Security Operations Overview</h1>
+        <p>Real-time snapshot of your environment's threat posture.</p>
+      </div>
+      <div class="quick-actions">
+        <a href="website_scanner.html" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> New Scan</a>
+        
+      </div>
+    </div>
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid">
+      <div class="glass-card kpi-card">
+        <div class="kpi-ring" data-score="82">
+          <svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="42"></circle><circle class="ring-fg" cx="50" cy="50" r="42"></circle></svg>
+          <span class="kpi-ring-value">82</span>
+        </div>
+        <div><h3>Security Score</h3><p>Good standing — 3 items need review</p></div>
+      </div>
+      <div class="glass-card kpi-card simple">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        <div><strong id="kpiScans">47</strong><span>Today's Scans</span></div>
+      </div>
+      <div class="glass-card kpi-card simple danger">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div><strong id="kpiThreats">6</strong><span>Threats Found</span></div>
+      </div>
+      <div class="glass-card kpi-card simple">
+        <i class="fa-solid fa-file-shield"></i>
+        <div><strong id="kpiFiles">132</strong><span>Files Scanned</span></div>
+      </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-grid">
+      <div class="glass-card chart-card wide">
+        <div class="chart-head"><h3>Threat Timeline</h3><span class="tag">Last 7 days</span></div>
+        <canvas id="timelineChart" height="110"></canvas>
+      </div>
+      <div class="glass-card chart-card">
+        <div class="chart-head"><h3>Risk Breakdown</h3></div>
+        <canvas id="riskPie" height="180"></canvas>
+      </div>
+      <div class="glass-card chart-card wide">
+        <div class="chart-head"><h3>Attack Categories</h3><span class="tag">This month</span></div>
+        <canvas id="categoryChart" height="110"></canvas>
+      </div>
+      <div class="glass-card chart-card">
+        <div class="chart-head"><h3>Latest Alerts</h3></div>
+        <ul class="alert-list" id="alertList">
+          <li class="alert-item high"><i class="fa-solid fa-circle-exclamation"></i><div><strong>Phishing email detected</strong><span>invoice-verify@paypa1.com · 4m ago</span></div></li>
+          <li class="alert-item medium"><i class="fa-solid fa-circle-exclamation"></i><div><strong>Suspicious redirect chain</strong><span>bit.ly/3xQ9f → unknown host · 22m ago</span></div></li>
+          <li class="alert-item low"><i class="fa-solid fa-circle-exclamation"></i><div><strong>Weak password reused</strong><span>user: r.patel · 1h ago</span></div></li>
+          <li class="alert-item high"><i class="fa-solid fa-circle-exclamation"></i><div><strong>Brute-force attempt blocked</strong><span>203.0.113.44 · 2h ago</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+    <div class="glass-card table-card">
+      <div class="chart-head"><h3>Recent Activity</h3><input type="text" id="tableFilter" placeholder="Filter activity..." class="table-filter"></div>
+      <div class="table-wrap">
+        <table id="activityTable">
+          <thead><tr><th>Module</th><th>Target</th><th>Result</th><th>Risk</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td><i class="fa-solid fa-globe"></i> Website Scanner</td><td>secure-login-update.net</td><td>Blocked</td><td><span class="badge high">High</span></td><td>4 min ago</td></tr>
+            <tr><td><i class="fa-solid fa-envelope-open-text"></i> Email Analyzer</td><td>promo@dealz-now.info</td><td>Flagged</td><td><span class="badge medium">Medium</span></td><td>19 min ago</td></tr>
+            <tr><td><i class="fa-solid fa-key"></i> Password Checker</td><td>account_2024</td><td>Weak</td><td><span class="badge medium">Medium</span></td><td>33 min ago</td></tr>
+            <tr><td><i class="fa-solid fa-file-shield"></i> File Scanner</td><td>invoice_report.docx</td><td>Clean</td><td><span class="badge low">Low</span></td><td>1 hr ago</td></tr>
+            <tr><td><i class="fa-solid fa-server"></i> Log Analyzer</td><td>nginx_access.log</td><td>SQLi attempt</td><td><span class="badge high">High</span></td><td>2 hr ago</td></tr>
+            <tr><td><i class="fa-solid fa-qrcode"></i> QR Scanner</td><td>QR_menu_table3.png</td><td>Clean</td><td><span class="badge low">Low</span></td><td>3 hr ago</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

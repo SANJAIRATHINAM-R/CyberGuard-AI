@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Analyzer — CyberGuard AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/scanner.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dash-body">
+
+<div class="toast-stack" id="toastStack"></div>
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i> CyberGuard AI</a>
+  <nav class="side-nav">
+    <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    <a href="website_scanner.html"><i class="fa-solid fa-globe"></i> Website Scanner</a>
+    <a href="email_analyzer.html" class="active"><i class="fa-solid fa-envelope-open-text"></i> Email Analyzer</a>
+    <a href="qr_scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
+    <a href="password_checker.html"><i class="fa-solid fa-key"></i> Password Checker</a>
+    <a href="file_scanner.html"><i class="fa-solid fa-file-shield"></i> File Scanner</a>
+    <a href="log_analyzer.html"><i class="fa-solid fa-server"></i> Log Analyzer</a>
+    <a href="chatbot.html"><i class="fa-solid fa-robot"></i> AI Chatbot</a>
+    <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+  </nav>
+  <a href="index.html" class="side-logout"><i class="fa-solid fa-house"></i> Back to Home</a>
+</aside>
+
+<div class="dash-main">
+  <header class="topbar">
+    <button class="side-toggle" id="sideToggle"><i class="fa-solid fa-bars"></i></button>
+    <div class="topbar-search"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search scans, alerts, modules..."></div>
+    <div class="topbar-actions">
+      <div class="user-chip"><div class="avatar"><i class="fa-solid fa-user"></i></div><span>Guest</span></div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <div class="dash-heading">
+      <div><h1><i class="fa-solid fa-envelope-open-text" style="color:var(--neon-blue)"></i> Email Analyzer</h1><p>Upload a .eml file or paste raw email content to detect spoofing, phishing, and malicious links.</p></div>
+    </div>
+
+    <div class="scan-grid">
+      <div class="glass-card scan-input-card">
+        <label>Upload an .eml file</label>
+        <div class="drop-zone" id="emailDropZone">
+          <i class="fa-solid fa-envelope-circle-check"></i>
+          <strong>Drop .eml file here or click to browse</strong>
+          <span>Accepts .eml and .txt email exports</span>
+          <input type="file" id="emailFileInput" accept=".eml,.txt,message/rfc822">
+        </div>
+        <div class="file-chip" id="emailFileChip" style="display:none">
+          <i class="fa-solid fa-file-lines"></i>
+          <div class="file-info"><strong id="emailFileName">—</strong><span id="emailFileSize">—</span></div>
+          <button class="file-remove" id="emailFileRemove"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <label style="margin-top:22px">Or paste raw email source</label>
+        <textarea id="emailRawInput" rows="8" placeholder="From: billing@paypa1-secure.com&#10;Subject: Your account has been suspended&#10;..." style="width:100%;background:var(--bg-alt);border:1px solid var(--glass-border);border-radius:10px;padding:13px 16px;color:var(--text-hi);font-size:13px;font-family:var(--font-mono);resize:vertical;"></textarea>
+
+        <div class="scan-progress" id="emailProgress"><div class="scan-progress-bar"></div></div>
+
+        <button class="btn btn-primary btn-block" id="analyzeEmailBtn" style="margin-top:18px">
+          <i class="fa-solid fa-magnifying-glass"></i> Analyze Email
+        </button>
+
+        <div class="scan-checks">
+          <div class="check-row"><i class="fa-solid fa-user-secret"></i> Sender Spoofing</div>
+          <div class="check-row"><i class="fa-solid fa-fish"></i> Phishing Keywords</div>
+          <div class="check-row"><i class="fa-solid fa-link"></i> Embedded Links</div>
+          <div class="check-row"><i class="fa-solid fa-paperclip"></i> Attachments</div>
+        </div>
+      </div>
+
+      <div class="glass-card result-card" id="resultCard" style="display:none">
+        <div class="result-head">
+          <div>
+            <span class="eyebrow" style="margin:0">Analysis Result</span>
+            <h3 id="resultVerdict">—</h3>
+          </div>
+          <div class="risk-chip" id="riskChip">—</div>
+        </div>
+
+        <div class="metric-grid" id="metricGrid"></div>
+
+        <div style="margin-bottom:18px" id="linksSection">
+          <h4 style="font-size:14px;margin-bottom:10px;color:var(--text-hi)">Links Found</h4>
+          <ul class="link-list" id="linkList"></ul>
+        </div>
+
+        <div class="ai-explain">
+          <div class="ai-explain-head"><i class="fa-solid fa-robot"></i> AI Explanation</div>
+          <p id="aiExplanation">—</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/scanner.js"></script>
+<script src="js/email.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberGuard AI — Detect. Analyze. Prevent.</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="loader-overlay" id="loader">
+  <div class="loader-ring"></div>
+  <span>INITIALIZING CYBERGUARD AI...</span>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i> CyberGuard AI</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it Works</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="dashboard.html" class="btn btn-primary">Open Dashboard</a>
+      <button class="nav-toggle" id="navToggle"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">AI-Powered Threat Intelligence</div>
+      <h1>Detect threats before <span>they detect you</span>.</h1>
+      <p>One platform to scan websites, emails, QR codes, passwords, files and logs — with AI explanations in plain English. Built for analysts, students, and security teams.</p>
+      <div class="hero-cta">
+        <a href="dashboard.html" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Open Dashboard</a>
+        <a href="#how-it-works" class="btn btn-ghost"><i class="fa-solid fa-play"></i> See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong id="statScans">128,430</strong><span>Scans Run</span></div>
+        <div><strong id="statThreats">9,214</strong><span>Threats Caught</span></div>
+        <div><strong>99.2%</strong><span>Detection Rate</span></div>
+      </div>
+    </div>
+    <div class="radar-wrap">
+      <div class="radar-ring"></div>
+      <div class="radar-ring"></div>
+      <div class="radar-ring"></div>
+      <div class="radar-ring"></div>
+      <div class="radar-sweep"></div>
+      <div class="radar-core"></div>
+      <div class="radar-dot" style="top:22%; left:64%;"></div>
+      <div class="radar-dot" style="top:58%; left:30%; animation-delay:.6s;"></div>
+      <div class="radar-dot" style="top:70%; left:70%; animation-delay:1.2s;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="eyebrow">Modules</div>
+    <h2 class="section-title">Eight tools. One dashboard.</h2>
+    <p class="section-sub">Every module runs its own analysis engine and explains the result with AI — no jargon, just risk and reasoning.</p>
+    <div style="height:36px"></div>
+    <div class="grid-4">
+      <div class="glass-card feature-card"><i class="fa-solid fa-globe"></i><h3>Website Scanner</h3><p>HTTPS, domain age, WHOIS, blacklist &amp; redirect checks with a risk score.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-envelope-open-text"></i><h3>Email Analyzer</h3><p>Detects spoofing, phishing keywords, malicious links &amp; attachments.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-qrcode"></i><h3>QR Scanner</h3><p>Decodes QR images and flags suspicious destination URLs.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-key"></i><h3>Password Checker</h3><p>Entropy, crack-time estimation, and real-time strength meter.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-file-shield"></i><h3>File Scanner</h3><p>SHA-256 fingerprinting and risk analysis for PDF, ZIP, EXE, DOCX &amp; APK.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-server"></i><h3>Log Analyzer</h3><p>Finds SQLi, XSS, brute force, traversal &amp; command injection in server logs.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-robot"></i><h3>AI Chatbot</h3><p>Your on-demand cybersecurity assistant, trained to explain any threat.</p></div>
+      <div class="glass-card feature-card"><i class="fa-solid fa-file-lines"></i><h3>Incident Reports</h3><p>Auto-generated executive summaries, ready to export as PDF.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="glass-card" style="padding:40px">
+      <div class="grid-4">
+        <div class="stat-card"><strong>50K+</strong><span>Active Users</span></div>
+        <div class="stat-card"><strong>2.1M</strong><span>URLs Checked</span></div>
+        <div class="stat-card"><strong>317K</strong><span>Threats Blocked</span></div>
+        <div class="stat-card"><strong>24/7</strong><span>AI Monitoring</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="eyebrow">Workflow</div>
+    <h2 class="section-title">From upload to verdict in seconds.</h2>
+    <div style="height:36px"></div>
+    <div class="grid-3">
+      <div class="glass-card step-card"><span class="step-num">STEP 01</span><h3>Submit</h3><p style="color:var(--text-dim);font-size:14.5px">Paste a URL, upload a file, or drop in a log — whatever you need checked.</p></div>
+      <div class="glass-card step-card"><span class="step-num">STEP 02</span><h3>Analyze</h3><p style="color:var(--text-dim);font-size:14.5px">Our engine runs heuristic + AI analysis and scores the risk in real time.</p></div>
+      <div class="glass-card step-card"><span class="step-num">STEP 03</span><h3>Act</h3><p style="color:var(--text-dim);font-size:14.5px">Get a plain-English explanation and a recommendation you can actually use.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="section" id="screenshots">
+  <div class="container">
+    <div class="eyebrow">Preview</div>
+    <h2 class="section-title">Built to look like a real SOC.</h2>
+    <div style="height:30px"></div>
+    <div class="glass-card" style="padding:16px">
+      <img src="https://images.unsplash.com/photo-1614064548237-096f735f344f?w=1200&q=80" alt="Dashboard preview" style="width:100%;border-radius:14px;display:block;filter:saturate(1.1) brightness(0.85) hue-rotate(-10deg);">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container" style="max-width:760px">
+    <div class="eyebrow">About</div>
+    <h2 class="section-title">Why CyberGuard AI exists.</h2>
+    <p style="color:var(--text-dim); font-size:16px">Most people can't tell if a link, email, or QR code is safe until it's too late. CyberGuard AI puts a full security analyst's toolkit — and an AI that explains every verdict in plain language — in a single dashboard, so anyone can make an informed decision in seconds.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container" style="max-width:560px; text-align:center">
+    <div class="eyebrow" style="justify-content:center">Get in touch</div>
+    <h2 class="section-title">Questions? Talk to the team.</h2>
+    <form class="glass-card" style="padding:30px; display:flex; flex-direction:column; gap:14px; margin-top:20px;" onsubmit="return handleContact(event)">
+      <input type="text" placeholder="Your name" required style="background:var(--bg-alt);border:1px solid var(--glass-border);border-radius:10px;padding:13px 16px;color:var(--text-hi);">
+      <input type="email" placeholder="Your email" required style="background:var(--bg-alt);border:1px solid var(--glass-border);border-radius:10px;padding:13px 16px;color:var(--text-hi);">
+      <textarea placeholder="Message" rows="4" required style="background:var(--bg-alt);border:1px solid var(--glass-border);border-radius:10px;padding:13px 16px;color:var(--text-hi);resize:vertical;"></textarea>
+      <button class="btn btn-primary btn-block" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i> CyberGuard AI</a>
+        <p style="margin-top:14px; font-size:14px; color:var(--text-dim); max-width:280px;">One platform to detect, analyze, explain and prevent cyber threats.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="#features">Features</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="#how-it-works">How it Works</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">© 2026 CyberGuard AI. Built for education &amp; research purposes.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

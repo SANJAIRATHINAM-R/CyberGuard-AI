@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Scanner — CyberGuard AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/scanner.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dash-body">
+
+<div class="toast-stack" id="toastStack"></div>
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i> CyberGuard AI</a>
+  <nav class="side-nav">
+    <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    <a href="website_scanner.html"><i class="fa-solid fa-globe"></i> Website Scanner</a>
+    <a href="email_analyzer.html"><i class="fa-solid fa-envelope-open-text"></i> Email Analyzer</a>
+    <a href="qr_scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
+    <a href="password_checker.html"><i class="fa-solid fa-key"></i> Password Checker</a>
+    <a href="file_scanner.html" class="active"><i class="fa-solid fa-file-shield"></i> File Scanner</a>
+    <a href="log_analyzer.html"><i class="fa-solid fa-server"></i> Log Analyzer</a>
+    <a href="chatbot.html"><i class="fa-solid fa-robot"></i> AI Chatbot</a>
+    <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+  </nav>
+  <a href="index.html" class="side-logout"><i class="fa-solid fa-house"></i> Back to Home</a>
+</aside>
+
+<div class="dash-main">
+  <header class="topbar">
+    <button class="side-toggle" id="sideToggle"><i class="fa-solid fa-bars"></i></button>
+    <div class="topbar-search"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search scans, alerts, modules..."></div>
+    <div class="topbar-actions">
+      <div class="user-chip"><div class="avatar"><i class="fa-solid fa-user"></i></div><span>Guest</span></div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <div class="dash-heading">
+      <div><h1><i class="fa-solid fa-file-shield" style="color:var(--neon-blue)"></i> File Scanner</h1><p>Upload a file to fingerprint it with SHA-256 and flag common risk indicators.</p></div>
+    </div>
+
+    <div class="scan-grid">
+      <div class="glass-card scan-input-card">
+        <label>Upload a file to scan</label>
+        <div class="drop-zone" id="fileDropZone">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <strong>Drop a file here or click to browse</strong>
+          <span>PDF, ZIP, EXE, DOCX, APK &amp; more — up to 25MB</span>
+          <input type="file" id="scanFileInput">
+        </div>
+        <div class="file-chip" id="scanFileChip" style="display:none">
+          <i class="fa-solid fa-file" id="scanFileIcon"></i>
+          <div class="file-info"><strong id="scanFileName">—</strong><span id="scanFileSize">—</span></div>
+          <button class="file-remove" id="scanFileRemove"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="scan-progress" id="fileProgress"><div class="scan-progress-bar"></div></div>
+
+        <button class="btn btn-primary btn-block" id="scanFileBtn" style="margin-top:18px" disabled>
+          <i class="fa-solid fa-magnifying-glass"></i> Scan File
+        </button>
+
+        <div class="scan-checks">
+          <div class="check-row"><i class="fa-solid fa-fingerprint"></i> SHA-256 Fingerprint</div>
+          <div class="check-row"><i class="fa-solid fa-circle-info"></i> File Type Detection</div>
+          <div class="check-row"><i class="fa-solid fa-triangle-exclamation"></i> Risk Indicators</div>
+        </div>
+      </div>
+
+      <div class="glass-card result-card" id="resultCard" style="display:none">
+        <div class="result-head">
+          <div>
+            <span class="eyebrow" style="margin:0">Scan Result</span>
+            <h3 id="resultVerdict">—</h3>
+          </div>
+          <div class="risk-chip" id="riskChip">—</div>
+        </div>
+
+        <div class="metric" style="margin-bottom:18px">
+          <span>SHA-256</span>
+          <strong id="sha256Value" style="word-break:break-all; font-size:12.5px;">—</strong>
+        </div>
+
+        <div class="metric-grid" id="metricGrid"></div>
+
+        <div style="margin-bottom:18px" id="findingsSection">
+          <h4 style="font-size:14px;margin-bottom:10px;color:var(--text-hi)">Risk Indicators</h4>
+          <div class="findings-list" id="findingsList"></div>
+        </div>
+
+        <div class="ai-explain">
+          <div class="ai-explain-head"><i class="fa-solid fa-robot"></i> AI Explanation</div>
+          <p id="aiExplanation">—</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/scanner.js"></script>
+<script src="js/filescan.js"></script>
+</body>
+</html>

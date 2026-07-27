@@ -1,0 +1,115 @@
+/* ==========================================================================
+   CyberGuard AI — scanner.css
+   Shared styles for scanner-style module pages (password, website, etc.)
+   ========================================================================== */
+
+.scan-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 22px; align-items: start; }
+
+.scan-input-card { padding: 28px; }
+.scan-input-card label { font-size: 13px; color: var(--text-mid); display: block; margin-bottom: 8px; }
+.scan-input-card input[type="text"] {
+  width: 100%; background: var(--bg-alt); border: 1px solid var(--glass-border); border-radius: 10px;
+  padding: 13px 16px; color: var(--text-hi); font-size: 14.5px; font-family: var(--font-mono);
+}
+.scan-input-card input:focus { outline: none; border-color: var(--neon-blue); }
+
+.pw-field { position: relative; }
+.pw-field input { width: 100%; background: var(--bg-alt); border: 1px solid var(--glass-border); border-radius: 10px; padding: 13px 42px 13px 16px; color: var(--text-hi); font-size: 14.5px; font-family: var(--font-mono); }
+.pw-field input:focus { outline: none; border-color: var(--neon-blue); }
+.pw-field .toggle-pw { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--text-dim); cursor: pointer; }
+
+.live-meter { height: 6px; border-radius: 4px; background: var(--bg-alt); margin-top: 14px; overflow: hidden; }
+.live-meter-bar { height: 100%; width: 0; border-radius: 4px; transition: width .3s ease, background .3s ease; }
+.live-meter-label { font-size: 12px; color: var(--text-dim); margin-top: 6px; display: block; }
+
+.scan-checks { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.check-row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text-dim); padding: 8px 0; border-bottom: 1px dashed rgba(255,255,255,0.06); }
+.check-row i { width: 18px; color: var(--neon-blue); }
+
+.result-card { padding: 28px; min-height: 100%; }
+.result-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 22px; }
+.result-head h3 { font-size: 21px; margin-top: 4px; }
+.risk-chip { font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; padding: 8px 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
+.risk-chip.low { background: rgba(46,230,166,0.14); color: var(--success); }
+.risk-chip.medium { background: rgba(255,184,77,0.14); color: var(--warning); }
+.risk-chip.high { background: rgba(255,77,109,0.14); color: var(--danger); }
+
+.metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 22px; }
+.metric { background: var(--bg-alt); border: 1px solid var(--glass-border); border-radius: 12px; padding: 14px 16px; }
+.metric span { font-size: 12px; color: var(--text-dim); display: block; margin-bottom: 6px; }
+.metric strong { font-family: var(--font-mono); font-size: 16px; color: var(--text-hi); }
+.metric.ok strong { color: var(--success); }
+.metric.warn strong { color: var(--warning); }
+.metric.bad strong { color: var(--danger); }
+
+.ai-explain { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.18); border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+.ai-explain-head { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--neon-blue); margin-bottom: 8px; }
+.ai-explain p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+.suggestions h4 { font-size: 14px; margin-bottom: 10px; color: var(--text-hi); }
+.suggestions ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.suggestions li { font-size: 13.5px; color: var(--text-dim); display: flex; gap: 8px; }
+.suggestions li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--success); }
+
+@media (max-width: 1100px) {
+  .scan-grid { grid-template-columns: 1fr; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ==========================================================================
+   File drop zone (Email / QR / File / Log modules)
+   ========================================================================== */
+.drop-zone {
+  border: 2px dashed var(--glass-border); border-radius: 14px; padding: 36px 20px;
+  text-align: center; cursor: pointer; transition: all .2s ease; background: var(--bg-alt);
+}
+.drop-zone:hover, .drop-zone.dragover { border-color: var(--neon-blue); background: rgba(0,212,255,0.05); }
+.drop-zone i { font-size: 30px; color: var(--neon-blue); margin-bottom: 12px; display: block; }
+.drop-zone strong { display: block; color: var(--text-hi); font-size: 15px; margin-bottom: 4px; }
+.drop-zone span { font-size: 12.5px; color: var(--text-dim); }
+.drop-zone input[type="file"] { display: none; }
+
+.file-chip {
+  display: flex; align-items: center; gap: 12px; background: var(--bg-alt); border: 1px solid var(--glass-border);
+  border-radius: 10px; padding: 12px 16px; margin-top: 16px;
+}
+.file-chip i { font-size: 18px; color: var(--neon-blue); }
+.file-chip .file-info { flex: 1; min-width: 0; }
+.file-chip .file-info strong { display: block; font-size: 13.5px; color: var(--text-hi); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-chip .file-info span { font-size: 12px; color: var(--text-dim); }
+.file-chip .file-remove { color: var(--text-dim); cursor: pointer; background: none; border: none; font-size: 15px; }
+.file-chip .file-remove:hover { color: var(--danger); }
+
+.qr-preview { width: 100%; max-width: 220px; margin: 16px auto 0; border-radius: 12px; border: 1px solid var(--glass-border); display: block; }
+
+/* ==========================================================================
+   Findings list (Log Analyzer / Email Analyzer)
+   ========================================================================== */
+.findings-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; max-height: 320px; overflow-y: auto; }
+.finding-item { display: flex; gap: 12px; align-items: flex-start; background: var(--bg-alt); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px 14px; }
+.finding-item i { margin-top: 2px; font-size: 13px; }
+.finding-item.high i, .finding-item.high .finding-tag { color: var(--danger); }
+.finding-item.medium i, .finding-item.medium .finding-tag { color: var(--warning); }
+.finding-item.low i, .finding-item.low .finding-tag { color: var(--success); }
+.finding-item .finding-body { flex: 1; min-width: 0; }
+.finding-item .finding-tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.finding-item strong { display: block; font-size: 13.5px; color: var(--text-hi); margin: 2px 0; }
+.finding-item code { display: block; font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px; margin-top: 4px; overflow-x: auto; white-space: pre; }
+.no-findings { text-align: center; padding: 30px 20px; color: var(--text-dim); font-size: 14px; }
+.no-findings i { display: block; font-size: 26px; color: var(--success); margin-bottom: 10px; }
+
+/* ==========================================================================
+   Link list (Email Analyzer)
+   ========================================================================== */
+.link-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.link-list li { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12.5px; color: var(--text-mid); background: var(--bg-alt); border: 1px solid var(--glass-border); border-radius: 8px; padding: 8px 12px; overflow-x: auto; white-space: nowrap; }
+.link-list li i { color: var(--neon-blue); flex-shrink: 0; }
+.link-list li.suspicious { border-color: rgba(255,77,109,0.35); color: var(--danger); }
+.link-list li.suspicious i { color: var(--danger); }
+
+/* Progress / scanning animation for uploads */
+.scan-progress { height: 4px; border-radius: 4px; background: var(--bg-alt); overflow: hidden; margin-top: 14px; display: none; }
+.scan-progress.active { display: block; }
+.scan-progress-bar { height: 100%; width: 30%; background: linear-gradient(90deg, transparent, var(--neon-blue), transparent); animation: progressSlide 1.1s ease-in-out infinite; }
+@keyframes progressSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(400%); } }
+
